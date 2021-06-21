@@ -47,7 +47,7 @@ public class QGPCapacitor extends SlimefunItem {
 
             Block b = optionalBlock.get();
             e.getPlayer().sendMessage(String.format(
-                "This %s has %d Quark-Gluon Plasma",
+                "這個 %s 有 %d 個夸克膠子等離子體",
                 QGPCapacitor.this.getItemName(),
                 QGPCapacitor.get(b)
             ));

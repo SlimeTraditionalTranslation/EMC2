@@ -59,11 +59,11 @@ public class Setup {
     }
 
     public static void setupResearches() {
-        registerResearch("qgp_storage", "QGP Storage", 50, Items.SMALL_CAPACITOR, Items.MEDIUM_CAPACITOR);
-        registerResearch("more_qgp_storage", "More GQP Storage", 70, Items.LARGE_CAPACITOR);
-        registerResearch("materialization", "Materialization", 70, Items.DEMATERIALIZER, Items.REMATERIALIZER);
-        registerResearch("routing", "Routing", 40, Items.ROUTER);
-        registerResearch("qgp_manipulation", "QGP Manipulation", 50, Items.QGP_CONTAINMENT_CELL,
+        registerResearch("qgp_storage", "夸克膠子儲存", 50, Items.SMALL_CAPACITOR, Items.MEDIUM_CAPACITOR);
+        registerResearch("more_qgp_storage", "更多夸克膠子儲存", 70, Items.LARGE_CAPACITOR);
+        registerResearch("materialization", "物質化", 70, Items.DEMATERIALIZER, Items.REMATERIALIZER);
+        registerResearch("routing", "路由", 40, Items.ROUTER);
+        registerResearch("qgp_manipulation", "夸克膠子等離子體操控者", 50, Items.QGP_CONTAINMENT_CELL,
             Items.QGP_CONTAINMENT_FIELD, Items.SUPERCONDUCTING_WIRE, Items.ATOMIZER);
 
     }

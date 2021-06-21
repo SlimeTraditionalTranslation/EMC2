@@ -36,20 +36,20 @@ public class Rematerializer extends SlimefunItem {
 
     private static final ItemStack INPUT_ITEM = new CustomItem(
         Material.BLUE_STAINED_GLASS_PANE,
-        "&9Input",
+        "&9輸入",
         "",
-        "&7Put the item to copy",
-        "&7in the adjacent slot"
+        "&7將要複製的物品",
+        "&7放在相鄰的欄位中"
     );
 
     private static final ItemStack ACTION_ITEM = new CustomItem(
         Material.NETHER_STAR,
-        "&6Copy",
+        "&6複製",
         "",
-        "&eLeft Click&7 to copy one item into your inventory",
-        "&eShift Left Click&7 to copy a stack into your inventory",
-        "&eRight Click&7 to copy one item",
-        "&eShift Right Click&7 to copy a stack"
+        "&e左鍵&7 複製一件物品到你的物品欄中",
+        "&eShift 左鍵&7 複製一組物品到你的物品欄中",
+        "&e右鍵&7 複製一件物品",
+        "&eShift 右鍵&7 複製一組物品"
     );
 
     public Rematerializer() {
@@ -107,7 +107,7 @@ public class Rematerializer extends SlimefunItem {
     private void onClick(Player p, BlockMenu menu, ClickAction action) {
         ItemStack copyItem = menu.getItemInSlot(ITEM_SLOT);
         if (copyItem == null || copyItem.getType().isAir()) {
-            p.sendMessage(ChatColor.RED + "Please input an item to copy");
+            p.sendMessage(ChatColor.RED + "請放入要複製的物品");
             return;
         }
 
@@ -116,7 +116,7 @@ public class Rematerializer extends SlimefunItem {
 
         long cost = ItemValues.getInstance().getValue(item);
         if (cost == 0) {
-            p.sendMessage(ChatColor.RED + "This item is not copyable");
+            p.sendMessage(ChatColor.RED + "這個物品無法被複製");
             return;
         }
 
@@ -130,9 +130,9 @@ public class Rematerializer extends SlimefunItem {
         long taken = QGPCapacitor.removeAmong(b, cost);
         if (taken < cost) {
             BlockStorage.addBlockInfo(b, "buffer", Long.toString(taken));
-            p.sendMessage(ChatColor.RED + "Not enough Quark-Gluon Plasma. Please ensure there is at least " +
-                "one QGP Capacitor adjacent to the Materializer and that they have sufficient Quark-Gluon " +
-                "Plasma between them"
+            p.sendMessage(ChatColor.RED + "沒有足夠的夸克膠子等離子體. 請確保至少有一個 " +
+                "夸克膠子容器與物質化機相鄰, 並且它們有足夠的 " +
+                "夸克膠子等離子體在它們之間"
             );
             return;
         }

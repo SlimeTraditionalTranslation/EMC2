@@ -26,7 +26,7 @@ public class Atomizer extends SlimefunItem {
             if (item.getType().isAir()) return;
 
             e.getPlayer().sendMessage(String.format(
-                "This item is worth %d Quark-Gluon Plasma",
+                "這件物品價值 %d 夸克膠子等離子體",
                 ItemValues.getInstance().getValue(item)
             ));
         };

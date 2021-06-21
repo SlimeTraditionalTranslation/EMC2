@@ -1,8 +1,8 @@
 package io.github.seggan.emc2;
 
 import io.github.mooy1.infinitylib.AbstractAddon;
-import io.github.mooy1.infinitylib.bstats.bukkit.Metrics;
-import io.github.mooy1.infinitylib.bstats.charts.SingleLineChart;
+//import io.github.mooy1.infinitylib.bstats.bukkit.Metrics;
+//import io.github.mooy1.infinitylib.bstats.charts.SingleLineChart;
 import io.github.seggan.emc2.items.QGPCapacitor;
 import io.github.seggan.emc2.qgp.ItemValues;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
@@ -56,8 +56,8 @@ public final class EMC2 extends AbstractAddon {
         instance = null;
     }
 
-    @Override
-    protected Metrics setupMetrics() {
+    //@Override
+    /*protected Metrics setupMetrics() {
         Metrics metrics = new Metrics(this, 11550);
         metrics.addCustomChart(new SingleLineChart("qgp_stored", () -> {
             int amount = 0;
@@ -71,12 +71,12 @@ public final class EMC2 extends AbstractAddon {
             return amount;
         }));
         return metrics;
-    }
+    }*/
 
     @Nonnull
     @Override
     protected String getGithubPath() {
-        return "Seggan/EMC2/master";
+        return "SlimeTraditionalTranslation/EMC2/master";
     }
 
     public static EMC2 inst() {

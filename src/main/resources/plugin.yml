@@ -2,6 +2,7 @@ name: EMC2
 author: Seggan
 main: io.github.seggan.emc2.EMC2
 website: https://github.com/Seggan/EMC2
+description: 黏液科技附加 夸克交換2 繁體翻譯版.
 depend: [Slimefun]
 version: ${project.version}
 api-version: 1.16
