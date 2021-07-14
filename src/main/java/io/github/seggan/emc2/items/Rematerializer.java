@@ -20,9 +20,9 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Map;
 
 public class Rematerializer extends SlimefunItem {
 
@@ -114,7 +114,7 @@ public class Rematerializer extends SlimefunItem {
         ItemStack item = copyItem.clone();
         item.setAmount(action.isShiftClicked() ? 64 : 1);
 
-        long cost = ItemValues.getInstance().getValue(item);
+        long cost = ItemValues.getInstance().getValue(item); // get the cost of the item
         if (cost == 0) {
             p.sendMessage(ChatColor.RED + "這個物品無法被複製");
             return;
@@ -123,19 +123,21 @@ public class Rematerializer extends SlimefunItem {
         Block b = menu.getBlock();
         String s = BlockStorage.getLocationInfo(b.getLocation(), "buffer");
         if (s != null) {
-            cost -= Long.parseLong(s);
+            cost -= Long.parseLong(s); // reduce the cost by the buffer
             cost = Math.max(1, cost);
         }
 
-        long taken = QGPCapacitor.removeAmong(b, cost);
-        if (taken < cost) {
-            BlockStorage.addBlockInfo(b, "buffer", Long.toString(taken));
+        long taken = QGPCapacitor.removeAmong(b, cost); // take any more qgp needed
+        if (taken < cost) { // too little qgp taken
+            BlockStorage.addBlockInfo(b, "buffer", Long.toString(taken)); // store to buffer
             p.sendMessage(ChatColor.RED + "沒有足夠的夸克膠子等離子體. 請確保至少有一個 " +
-                "夸克膠子容器與物質化機相鄰, 並且它們有足夠的 " +
+                "夸克膠子容器與再物質化機相鄰, 並且它們有足夠的 " +
                 "夸克膠子等離子體在它們之間"
             );
             return;
         }
+
+        BlockStorage.addBlockInfo(b, "buffer", Long.toString(0)); // clear buffer on successful copy
 
         if (action.isRightClicked()) {
             menu.pushItem(item, OUTPUT_SLOT);
