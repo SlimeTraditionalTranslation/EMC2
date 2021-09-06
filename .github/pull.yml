@@ -4,4 +4,6 @@ rules:
     upstream: Seggan:master
     mergeMethod: merge
     conflictReviewers:
-      - slimetraditionaltranslation/translate-maintainer
+      - weiii-joe
+      - xhuanfux
+      - xMikux
