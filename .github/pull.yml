@@ -1,7 +1,7 @@
 version: "1"
 rules:
   - base: master
-    upstream: Seggan:master
+    upstream: Sefiraat:master
     mergeMethod: merge
     conflictReviewers:
       - weiii-joe
